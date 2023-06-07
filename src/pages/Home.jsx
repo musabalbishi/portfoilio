@@ -24,6 +24,7 @@ import {
   FaDatabase,
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import DropText from "../components/DropText";
 function Home() {
   return (
     <>
@@ -64,13 +65,36 @@ function Home() {
                         fontSize={"1.8rem"}
                       >
                         Hi, I&apos;m Musab 👋
+                        <NavLink
+                          to="/more"
+                          className={({ isActive }) =>
+                            isActive ? <DropText /> : ""
+                          }
+                        >
+                          more
+                        </NavLink>
                       </Box>
+
                       <FaChevronCircleDown />
                     </AccordionButton>
                   </Text>
+
                   <AccordionPanel pb={4} fontSize={"1.8rem"}>
-                    I&apos;m a full stack web developer from makkah, currently
-                    enrolled in tuwaiq academy javascript bootcamp
+                    <NavLink
+                      to="/more"
+                      className={({ isActive }) =>
+                        isActive ? (
+                          <AccordionPanel pb={4} fontSize={"1.8rem"}>
+                            <DropText />
+                          </AccordionPanel>
+                        ) : (
+                          ""
+                        )
+                      }
+                    >
+                      more
+                    </NavLink>
+                    <DropText />
                   </AccordionPanel>
                 </AccordionItem>
               </Accordion>

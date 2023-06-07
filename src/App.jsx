@@ -7,19 +7,24 @@ import {
 
 // Layouts
 import RootLayout from "./layouts/RootLayout";
+import AboutLayout from "./layouts/AboutLayout";
 
 // Pages
 import Home from "./pages/Home";
+import About from "./pages/About";
+
 // Components
 import "./index.css";
-import About from "./pages/About";
-import AboutLayout from "./layouts/AboutLayout";
+import DropText from "./components/DropText";
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<RootLayout />}>
-        <Route index element={<Home />} />
+        <Route path="/" element={<Home />}>
+          <Route path="/more" element={<DropText />} />
+        </Route>
+
         <Route path="/about" element={<AboutLayout />}>
           <Route index element={<About />} />
         </Route>
